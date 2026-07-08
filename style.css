@@ -659,7 +659,7 @@ footer {
 }
 
 .accordion.active .accordion-content {
-  max-height: 320px;
+  max-height: 500px;
 }
 
 .questions-div2 {
