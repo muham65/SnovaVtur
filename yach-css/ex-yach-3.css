@@ -466,7 +466,10 @@ footer {
     }
 
     .header-div1 {
-        display: none;
+        visibility: hidden;
+        opacity: 0;
+        transform: translateY(-8px);
+        transition: visibility 0.25s, opacity 0.25s, transform 0.25s;
         position: absolute;
         top: calc(100% + 10px);
         left: 16px;
@@ -483,7 +486,9 @@ footer {
     }
 
     .header-div1.open {
-        display: flex;
+        visibility: visible;
+        opacity: 1;
+        transform: translateY(0);
     }
 
     .header-div1 a {
@@ -519,5 +524,117 @@ footer {
     .feature-card div,
     .include-card {
         padding: 18px;
+    }
+}
+
+
+
+/* ===== PROGRAM ITINERARY ===== */
+#program .section-panel {
+    background: transparent;
+    box-shadow: none;
+    padding: 0;
+}
+
+#program .program-grid {
+    counter-reset: day-counter;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#program .program-card {
+    counter-increment: day-counter;
+    position: relative;
+    background: white;
+    border-radius: 20px;
+    padding: 32px 36px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    display: block;
+    min-height: 0;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+#program .program-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.08);
+}
+
+#program .program-card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(180deg, #ff8800, #ffb347);
+    border-radius: 4px 0 0 4px;
+}
+
+#program .program-card::after {
+    content: counter(day-counter, decimal-leading-zero);
+    position: absolute;
+    right: 24px;
+    top: 4px;
+    font-family: "Coda", system-ui;
+    font-size: 80px;
+    font-weight: 800;
+    color: rgba(255, 136, 0, 0.06);
+    pointer-events: none;
+    line-height: 1;
+    z-index: 0;
+}
+
+#program .program-card .day {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: #ff8800;
+    font-weight: 700;
+    font-family: "Coda", system-ui;
+    margin: 0 0 6px;
+    position: relative;
+    z-index: 1;
+}
+
+#program .program-card-body {
+    padding: 0;
+    background: transparent;
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
+}
+
+#program .program-card-body h3 {
+    font-family: "Coda", system-ui;
+    font-size: 22px;
+    margin: 0 0 10px;
+    color: #151515;
+    position: relative;
+    z-index: 1;
+}
+
+#program .program-card-body p {
+    font-size: 14px;
+    line-height: 1.8;
+    color: #555;
+    margin: 0;
+    position: relative;
+    z-index: 1;
+}
+
+/* Mobile itinerary */
+@media (max-width: 560px) {
+    #program .program-card {
+        padding: 24px 20px;
+    }
+    #program .program-card::after {
+        font-size: 56px;
+        right: 12px;
+    }
+    #program .program-card-body h3 {
+        font-size: 18px;
     }
 }
