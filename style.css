@@ -757,6 +757,89 @@ footer p {
   color: #ff8800;
 }
 
+.footer-privacy {
+  margin-top: 10px;
+  font-size: 14px !important;
+  color: rgba(255, 255, 255, 0.65) !important;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.footer-privacy:hover {
+  color: #ff8800 !important;
+}
+
+/* ===== Страница политики конфиденциальности ===== */
+.privacy {
+  padding: 150px 0 90px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.94),
+    rgba(245, 239, 232, 0.96)
+  );
+  position: relative;
+  z-index: 1;
+}
+
+.privacy-wrap {
+  width: min(900px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+.privacy-card {
+  background: white;
+  border-radius: 28px;
+  padding: 44px 46px;
+  box-shadow: 0 18px 50px rgba(34, 24, 16, 0.08);
+}
+
+.privacy-date {
+  font-family: "Comme", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #8d6a45;
+  margin-bottom: 18px;
+}
+
+.privacy-lead {
+  font-family: "Comme", sans-serif;
+  font-size: 17px;
+  line-height: 1.8;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.privacy-card h3 {
+  font-family: "Coda", system-ui;
+  font-size: clamp(20px, 2.4vw, 26px);
+  color: #151515;
+  margin: 30px 0 12px;
+}
+
+.privacy-card h3:first-of-type {
+  margin-top: 26px;
+}
+
+.privacy-card p {
+  font-family: "Comme", sans-serif;
+  font-size: 15px;
+  line-height: 1.8;
+  color: #444;
+  margin-bottom: 12px;
+}
+
+.privacy-card ul {
+  margin: 12px 0 12px 22px;
+  font-family: "Comme", sans-serif;
+  font-size: 15px;
+  line-height: 1.8;
+  color: #444;
+}
+
+.privacy-card ul li {
+  margin-bottom: 4px;
+}
+
 @media (max-width: 1200px) {
   .about-content,
   .questions-div1,
@@ -868,8 +951,13 @@ footer p {
   }
 
   .about-text,
-  .qs-text1 {
+  .qs-text1,
+  .privacy-card {
     padding: 24px 18px;
+  }
+
+  .privacy {
+    padding: 130px 0 60px;
   }
 
   .card-text-2 {

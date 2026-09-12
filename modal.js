@@ -153,7 +153,9 @@
 
       var name = form.querySelector('[name="name"]');
       var contact = form.querySelector('[name="contact"]');
+      var consent = form.querySelector('[name="consent"]');
       var ok = true;
+      var consentError = false;
 
       if (!name.value.trim()) {
         markError(name);
@@ -169,8 +171,18 @@
         clearError(contact);
       }
 
+      if (consent && !consent.checked) {
+        ok = false;
+        consentError = true;
+      }
+
       if (!ok) {
-        if (error) error.classList.add('show');
+        if (error) {
+          error.textContent = consentError
+            ? 'Подтвердите согласие с Политикой конфиденциальности.'
+            : 'Заполните имя и контакты, чтобы мы могли с вами связаться.';
+          error.classList.add('show');
+        }
         return;
       }
 
